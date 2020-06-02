@@ -1,18 +1,26 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+    
+    <div v-if="user" class="text-secondary text-left">
+      Welcome back, 
+      <span class="font-weight-bold text-info">{{user.displayName}}</span>, <a
+      href="#"
+      role="button"
+      class="text-primary"
+      @click="$emit('logout')"
+      >logout</a>
+    </div>
+
   </div>
+
+  
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from "@/components/HelloWorld.vue";
 
 export default {
-  name: "Home",
-  components: {
-    HelloWorld
-  }
+  name: "home",
+  props: ["user"]
 };
+
 </script>
